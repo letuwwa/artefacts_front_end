@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ArtefactsList from "./ArtefactsList";
 
 const Home = () => {
@@ -11,7 +11,11 @@ const Home = () => {
     const handleDelete = (id) => {
         const newArtefacts = artefacts.filter(artefact => artefact.id !== id);
         setArtefacts(newArtefacts);
-    }
+    };
+
+    useEffect(() => {
+        console.log("use effect ran")
+    });
 
     return (
     <div className="home">
