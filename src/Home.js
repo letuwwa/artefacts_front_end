@@ -8,9 +8,14 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
     ]);
     
+    const handleDelete = (id) => {
+        const newArtefacts = artefacts.filter(artefact => artefact.id !== id);
+        setArtefacts(newArtefacts);
+    }
+
     return (
     <div className="home">
-        <ArtefactsList artefacts={artefacts} title={"What we have found:"}/>
+        <ArtefactsList artefacts={artefacts} title="What we have found:" handleDelete={handleDelete}/>
     </div>
   );
 }
