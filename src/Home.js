@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import ArtefactsList from "./ArtefactsList";
 
 const Home = () => {
-    const [artefacts, setArtefacts] = useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-    ]);
+    const [artefacts, setArtefacts] = useState(null);
     
     const handleDelete = (id) => {
         const newArtefacts = artefacts.filter(artefact => artefact.id !== id);
@@ -14,12 +10,19 @@ const Home = () => {
     };
 
     useEffect(() => {
-        console.log("use effect ran")
+        fetch("http://localhost:8000/artefacts/artefact/")
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                setArtefacts(data);
+            });
     }, []);
 
     return (
     <div className="home">
-        <ArtefactsList artefacts={artefacts} title="What we have found:" handleDelete={handleDelete}/>
+        {artefacts && <ArtefactsList artefacts={artefacts} title="What we have found:" handleDelete={handleDelete}/>}
     </div>
   );
 }
