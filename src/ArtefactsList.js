@@ -6,7 +6,6 @@ const ArtefactsList = ({artefacts, title, handleDelete}) => {
                 <div className="artefac-preview" key={artefact.id} >
                     <h2>{ artefact.name }</h2>
                     <p>{ artefact.description }</p>
-                    <button onClick={() => handleDelete(artefact.id)}>More info</button>
                 </div>
             ))}
         </div>

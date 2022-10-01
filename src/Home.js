@@ -3,11 +3,6 @@ import ArtefactsList from "./ArtefactsList";
 
 const Home = () => {
     const [artefacts, setArtefacts] = useState(null);
-    
-    const handleDelete = (id) => {
-        const newArtefacts = artefacts.filter(artefact => artefact.id !== id);
-        setArtefacts(newArtefacts);
-    };
 
     useEffect(() => {
         fetch("http://localhost:8000/artefacts/artefact/")
@@ -22,7 +17,7 @@ const Home = () => {
 
     return (
     <div className="home">
-        {artefacts && <ArtefactsList artefacts={artefacts} title="What we have found:" handleDelete={handleDelete}/>}
+        {artefacts && <ArtefactsList artefacts={artefacts} title="What we have found:"/>}
     </div>
   );
 }
