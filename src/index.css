@@ -46,3 +46,14 @@
   color: #f1356d;
   margin-bottom: 8px;
 }
+.artefac-preview a {
+  text-decoration: none;
+}
+.artefact-details h2 {
+  font-size: 30x;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+.artefact-details div {
+  margin: 20px 0;
+}

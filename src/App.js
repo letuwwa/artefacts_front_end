@@ -1,6 +1,7 @@
 import Home from './Home';
 import Navbar from './Navbar';
 import Create from './Create';
+import ArtefactDetails from './ArtefactDetails';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/create">
             <Create />
+          </Route>
+          <Route path="/artefacts/:uuid">
+            <ArtefactDetails />
           </Route>
         </Switch>
       </div>
