@@ -1,15 +1,35 @@
 import { useState } from "react";
 
 const Create = () => {
-const [name, setName] = useState('');
-const [description, setDescription] = useState('');
-const [createdIn, setCreatedIn] = useState('');
-const [discoveredIn, setDiscoveredIn] = useState('');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [createdIn, setCreatedIn] = useState('');
+    const [discoveredIn, setDiscoveredIn] = useState('');
+    const [isLoading, setLoading] = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const artefact = {
+            'name': name, 
+            'description': description,
+            'creation_year': createdIn,
+            'discovery_year': discoveredIn,
+        }
+        setLoading(true);
+        fetch("http://localhost:8000/artefacts_api/artefacts/", {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(artefact)
+        }).then(() => {
+            console.log("data added");
+            setLoading(false);
+        })
+    }
 
     return ( 
         <div className="create">
             <h2>Add New Artefact</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Artefact name:</label>
                 <input 
                     type="text"
@@ -37,7 +57,8 @@ const [discoveredIn, setDiscoveredIn] = useState('');
                     value={createdIn}
                     onChange={(e) => setCreatedIn(e.target.value)} 
                 />
-                <button>Save Artefact</button>
+                { !isLoading && <button>Save Artefact</button>}
+                { isLoading && <button disabled>Saving Artefact</button>}
             </form>
         </div>
      );
