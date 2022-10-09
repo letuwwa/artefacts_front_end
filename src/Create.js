@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
     const [name, setName] = useState('');
@@ -6,6 +7,7 @@ const Create = () => {
     const [createdIn, setCreatedIn] = useState('');
     const [discoveredIn, setDiscoveredIn] = useState('');
     const [isLoading, setLoading] = useState(false)
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,7 +25,8 @@ const Create = () => {
         }).then(() => {
             console.log("data added");
             setLoading(false);
-        })
+            history.push('/');
+        });
     }
 
     return ( 
