@@ -9,7 +9,7 @@ const ArtefactsList = ({artefacts, title}) => {
                     <Link to={`/artefacts/${artefact.id}`}>
                         <h2>{ artefact.name }</h2>
                     </Link>
-                    <p>{ artefact.description }</p>
+                    { artefact.archeologist && <p>Discovered by {artefact.archeologist.first_name} {artefact.archeologist.surname}</p>}
                 </div>
             ))}
         </div>

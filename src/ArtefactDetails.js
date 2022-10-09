@@ -21,9 +21,9 @@ const ArtefactDetails = () => {
             { artefact && (
                 <article>
                      <h2>{ artefact.name }</h2>
-                     { artefact.archeologist && <p>Discovered by {artefact.archeologist.first_name}</p>}
-                     { artefact.discovery_year && <div>date of discovery: {artefact.discovery_year}</div>}
-                     { artefact.creation_year && <div>created at: {artefact.creation_year}</div>}
+                     { artefact.discovery_year && <div>Discovered in: {artefact.discovery_year}</div>}
+                     { artefact.creation_year && <div>Created in: {artefact.creation_year}</div>}
+                     <p>{artefact.description}</p>
                      <button onClick={handleClick}>Delete artefact</button>
                 </article>
             )}
