@@ -2,6 +2,8 @@ import Home from './pages/Home';
 import Navbar from './pages/Navbar';
 import Create from './pages/Create';
 import NotFound from './pages/NotFound';
+import LoginPage from './pages/LoginPage';
+import PrivateRouter from './utils/PrivateRouter';
 import ArtefactDetails from './pages/ArtefactDetails';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -16,11 +18,14 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/create">
+          <PrivateRouter path="/create">
             <Create />
-          </Route>
+          </PrivateRouter>
           <Route path="/artefacts/:uuid">
             <ArtefactDetails />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
           <Route path="*">
             <NotFound/>
