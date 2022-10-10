@@ -1,9 +1,9 @@
-import Home from './Home';
-import Navbar from './Navbar';
-import Create from './Create';
-import ArtefactDetails from './ArtefactDetails';
+import Home from './pages/Home';
+import Navbar from './pages/Navbar';
+import Create from './pages/Create';
+import NotFound from './pages/NotFound';
+import ArtefactDetails from './pages/ArtefactDetails';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import NotFound from './NotFound';
 
 
 function App() {
