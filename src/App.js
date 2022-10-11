@@ -6,34 +6,37 @@ import LoginPage from './pages/LoginPage';
 import PrivateRouter from './utils/PrivateRouter';
 import ArtefactDetails from './pages/ArtefactDetails';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { AuthProvider } from './context/AuthProvider';
 
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-      <Navbar />
-      <div className="content">
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <PrivateRouter path="/create">
-            <Create />
-          </PrivateRouter>
-          <Route path="/artefacts/:uuid">
-            <ArtefactDetails />
-          </Route>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="*">
-            <NotFound/>
-          </Route>
-        </Switch>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <PrivateRouter path="/create">
+              <Create />
+            </PrivateRouter>
+            <Route path="/artefacts/:uuid">
+              <ArtefactDetails />
+            </Route>
+            <Route path="/login">
+              <LoginPage />
+            </Route>
+            <Route path="*">
+              <NotFound/>
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
