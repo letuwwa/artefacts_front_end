@@ -6,7 +6,7 @@ const Create = () => {
     const [description, setDescription] = useState('');
     const [createdIn, setCreatedIn] = useState('');
     const [discoveredIn, setDiscoveredIn] = useState('');
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false);
     const history = useHistory();
 
     const handleSubmit = (e) => {

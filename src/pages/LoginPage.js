@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
+
 const LoginPage = () => {
+    const {loginUser} = useContext(AuthContext);
     return ( 
         <div className="login-input">
-            <form>
+            <form onSubmit={loginUser}>
                 <input 
                     type="text"
                     name="username"
@@ -12,9 +16,7 @@ const LoginPage = () => {
                     name="password"
                     placeholder="Enter password here"
                 />
-                <input 
-                    type="submit"
-                />
+                <button>Login</button>
             </form>
         </div>
      );
