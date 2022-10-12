@@ -11,32 +11,32 @@ import { AuthProvider } from './context/AuthProvider';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="App">
-        <Navbar />
-        <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <PrivateRouter path="/create">
-              <Create />
-            </PrivateRouter>
-            <Route path="/artefacts/:uuid">
-              <ArtefactDetails />
-            </Route>
-            <Route path="/login">
-              <LoginPage />
-            </Route>
-            <Route path="*">
-              <NotFound/>
-            </Route>
+    <Router>
+        <AuthProvider>
+          <div className="App">
+            <Navbar />
+            <div className="content">
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <PrivateRouter path="/create">
+                <Create />
+              </PrivateRouter>
+              <Route path="/artefacts/:uuid">
+                <ArtefactDetails />
+              </Route>
+              <Route path="/login">
+                <LoginPage />
+              </Route>
+              <Route path="*">
+                <NotFound/>
+              </Route>
           </Switch>
         </div>
-      </div>
-      </Router>
-    </AuthProvider>
+        </div>
+      </AuthProvider>
+    </Router>
   );
 }
 

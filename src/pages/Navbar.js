@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
-    let {user} = useContext(AuthContext);
+    let {user, logoutUser} = useContext(AuthContext);
     return ( 
         <nav className="navbar">
             <h1>Artefacts</h1>
@@ -11,7 +11,7 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
                 <Link to="/create">New Artefact</Link>
                 {user ? (
-                    <Link to="/login">Logout</Link>
+                    <a href="/" onClick={logoutUser}>Logout</a>
                 ): (
                     <Link to="/login">Login</Link>
                 )}
