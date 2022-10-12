@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AuthContext from './AuthContext'
+import jwt_decode from "jwt-decode";
 
 export const AuthProvider = ({ children }) => {
     const [authTokens, setAuthTokens] = useState(null);
@@ -20,13 +21,16 @@ export const AuthProvider = ({ children }) => {
         const data = await response.json()
         if (response.status === 200) {
             setAuthTokens(data);
-            setUser(data.access)
+            setUser(jwt_decode(data.access));
         } else {
             alert('Something went wrong!');
         }
     }
 
-    const contextData = {loginUser:loginUser}
+    const contextData = {
+        user:user,
+        loginUser:loginUser
+    }
 
     return (
         <AuthContext.Provider value={contextData}>
