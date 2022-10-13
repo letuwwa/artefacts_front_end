@@ -4,47 +4,47 @@ import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router-dom';
 
 export const AuthProvider = ({ children }) => {
-    let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
-    let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+    let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
+    let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null);
     let [loading, setLoading] = useState(true);
 
-    const history = useHistory()
+    const history = useHistory();
 
     let loginUser = async (e )=> {
-        e.preventDefault()
+        e.preventDefault();
         let response = await fetch('http://127.0.0.1:8000/auth_api/token/', {
-            method:'POST',
-            headers:{
+            method: 'POST',
+            headers: {
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
+            body: JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
         })
-        let data = await response.json()
+        let data = await response.json();
         if(response.status === 200){
-            setAuthTokens(data)
-            setUser(jwt_decode(data.access))
-            localStorage.setItem('authTokens', JSON.stringify(data))
-            history.push('/')
+            setAuthTokens(data);
+            setUser(jwt_decode(data.access));
+            localStorage.setItem('authTokens', JSON.stringify(data));
+            history.push('/');
         }else{
-            alert('Something went wrong!')
+            alert('Something went wrong!');
         }
     }
 
     let logoutUser = () => {
-        setAuthTokens(null)
-        setUser(null)
-        localStorage.removeItem('authTokens')
-        history.push('/login')
+        setAuthTokens(null);
+        setUser(null);
+        localStorage.removeItem('authTokens');
+        history.push('/login');
     }
 
     let updateToken = async ()=> {
         console.log('I work!')
         let response = await fetch('http://127.0.0.1:8000/auth_api/token/refresh/', {
-            method:'POST',
-            headers:{
+            method: 'POST',
+            headers: {
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify({'refresh':authTokens?.refresh})
+            body: JSON.stringify({'refresh':authTokens?.refresh})
         });
         let data = await response.json()
         if (response.status === 200){
@@ -71,14 +71,13 @@ export const AuthProvider = ({ children }) => {
         if(loading){
             updateToken();
         }
-        let fourMinutes = 1000 * 60 * 4
         let interval =  setInterval(()=> {
             if(authTokens){
                 updateToken();
             }
-        }, fourMinutes)
+        }, 1000 * 60 * 3)
         return ()=> clearInterval(interval);
-    }, [authTokens, loading])
+    }, [authTokens, loading]);
 
     return (
         <AuthContext.Provider value={contextData}>
