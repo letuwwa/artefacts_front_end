@@ -10,13 +10,13 @@ const Navbar = () => {
             <div className="links">
                 <Link to="/">Home</Link>
                 <Link to="/create">New Artefact</Link>
-                {user ? (
-                    <a href="/" onClick={logoutUser}>Logout</a>
+            </div>
+            { user && <p><strong>Hi, {user.username}</strong></p>}
+            {user ? (
+                    <button onClick={logoutUser}>Logout</button>
                 ): (
                     <Link to="/login">Login</Link>
                 )}
-            </div>
-            { user && <p><strong>Hi, {user.username}</strong></p>}
         </nav>
      );
 }

@@ -4,16 +4,16 @@ import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router-dom';
 
 export const AuthProvider = ({ children }) => {
-    const [authTokens, setAuthTokens] = useState(
+    let [authTokens, setAuthTokens] = useState(
         () => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
     );
-    const [user, setUser] = useState(
+    let [user, setUser] = useState(
         () => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null
     );
 
     const history = useHistory();
 
-    const loginUser = async (e) => {
+    let loginUser = async (e) => {
         e.preventDefault();
         const response = await fetch("http://localhost:8000/auth_api/token/", {
             method: 'POST',
