@@ -5,8 +5,9 @@ import NotFound from './pages/NotFound';
 import LoginPage from './pages/LoginPage';
 import PrivateRouter from './utils/PrivateRouter';
 import ArtefactDetails from './pages/ArtefactDetails';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
+import ArcheologistsList from './components/ArcheologistsList';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route path="/archeologists">
+                <ArcheologistsList />
               </Route>
               <PrivateRouter path="/create">
                 <Create />
