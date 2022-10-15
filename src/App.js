@@ -6,7 +6,7 @@ import LoginPage from './pages/LoginPage';
 import PrivateRouter from './utils/PrivateRouter';
 import ArtefactDetails from './pages/ArtefactDetails';
 import { AuthProvider } from './context/AuthProvider';
-import ArcheologistsList from './components/ArcheologistsList';
+import ArcheologistsPage from './pages/ArcheologistsPage';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -22,7 +22,7 @@ function App() {
                 <Home />
               </Route>
               <Route path="/archeologists">
-                <ArcheologistsList />
+                <ArcheologistsPage />
               </Route>
               <PrivateRouter path="/create">
                 <Create />
