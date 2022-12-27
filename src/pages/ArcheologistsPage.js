@@ -14,7 +14,7 @@ const ArcheologistsPage = () => {
       {archeologists && (
         <ArcheologistsList
           archeologists={archeologists.archeologists}
-          title="Our employee:"
+          title="Our employees:"
         />
       )}
     </div>
