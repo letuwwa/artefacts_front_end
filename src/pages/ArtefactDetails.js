@@ -1,4 +1,4 @@
-import useFetch from "../components/useFetch";
+import useFetch from "../utils/useFetch";
 import { useHistory, useParams } from "react-router-dom";
 
 const ArtefactDetails = () => {

@@ -1,4 +1,4 @@
-import useFetch from "../components/useFetch";
+import useFetch from "../utils/useFetch";
 import ArtefactsList from "../components/ArtefactsList";
 
 const Home = () => {

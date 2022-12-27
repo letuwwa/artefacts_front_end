@@ -1,5 +1,5 @@
 import ArcheologistsList from "../components/ArcheologistsList";
-import useFetch from "../components/useFetch";
+import useFetch from "../utils/useFetch";
 
 const ArcheologistsPage = () => {
   const {
