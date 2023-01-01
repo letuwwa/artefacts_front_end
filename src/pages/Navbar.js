@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css"
 import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
   let { user, logoutUser } = useContext(AuthContext);
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <h1>Artefacts</h1>
       <div className="links">
         <Link to="/">Home</Link>
