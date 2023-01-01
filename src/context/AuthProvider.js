@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import AuthContext from "./AuthContext";
 import jwt_decode from "jwt-decode";
+import AuthContext from "./AuthContext";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 export const AuthProvider = ({ children }) => {
