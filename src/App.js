@@ -3,6 +3,8 @@ import Navbar from "./pages/Navbar";
 import Create from "./pages/Create";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import PrivateRouter from "./utils/PrivateRouter";
 import ArtefactDetails from "./pages/ArtefactDetails";
 import { AuthProvider } from "./context/AuthProvider";
@@ -37,6 +39,7 @@ function App() {
               </Route>
             </Switch>
           </div>
+          <ToastContainer />
         </div>
       </AuthProvider>
     </Router>

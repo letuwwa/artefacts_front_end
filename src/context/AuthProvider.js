@@ -1,9 +1,13 @@
 import jwt_decode from "jwt-decode";
+import { toast } from "react-toastify";
 import AuthContext from "./AuthContext";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 export const AuthProvider = ({ children }) => {
+  const notifyLoginSuccessful = () => toast("Successful login!");
+  const notifyLoginError = () => toast("Provided data is not valid!");
+
   let [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
       ? JSON.parse(localStorage.getItem("authTokens"))
@@ -32,12 +36,13 @@ export const AuthProvider = ({ children }) => {
     });
     let data = await response.json();
     if (response.status === 200) {
+      notifyLoginSuccessful();
       setAuthTokens(data);
       setUser(jwt_decode(data.access));
       localStorage.setItem("authTokens", JSON.stringify(data));
       history.push("/");
     } else {
-      alert("Something went wrong!");
+      notifyLoginError();
     }
   };
 

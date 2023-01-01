@@ -1,4 +1,4 @@
-import styles from "./ArtefactPreview.module.css";
+import styles from "./ListPreview.module.css";
 
 const ArcheologistsList = ({ archeologists, title }) => {
   return (

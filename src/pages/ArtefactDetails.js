@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import useFetch from "../utils/useFetch";
 import styles from "./ArtefactDetails.module.css";
 import { useHistory, useParams } from "react-router-dom";
@@ -11,10 +12,13 @@ const ArtefactDetails = () => {
   } = useFetch("http://localhost:8000/artefacts_api/artefacts/" + uuid);
   const history = useHistory();
 
+  const notify = () => toast("Artefact has been deleted!");
+
   const handleClick = () => {
     fetch("http://localhost:8000/artefacts_api/artefacts/" + uuid, {
       method: "DELETE",
     }).then(() => {
+      notify();
       history.push("/");
     });
   };

@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
 
 const Create = () => {
+  const notify = () => toast("Artefact has been saved!");
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [createdIn, setCreatedIn] = useState("");
@@ -24,6 +27,7 @@ const Create = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(artefact),
     }).then(() => {
+      notify();
       console.log("data added");
       setLoading(false);
       history.push("/");

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./ArtefactPreview.module.css";
+import styles from "./ListPreview.module.css";
 
 const ArtefactsList = ({ artefacts, title }) => {
   return (
