@@ -1,4 +1,5 @@
 import useFetch from "../utils/useFetch";
+import styles from "./ArtefactDetails.module.css";
 import { useHistory, useParams } from "react-router-dom";
 
 const ArtefactDetails = () => {
@@ -19,7 +20,7 @@ const ArtefactDetails = () => {
   };
 
   return (
-    <div className="artefact-details">
+    <div className={styles.artefactDetails}>
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {artefact && (

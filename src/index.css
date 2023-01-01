@@ -28,20 +28,3 @@
 .artefac-preview a {
   text-decoration: none;
 }
-.artefact-details h2 {
-  font-size: 30x;
-  color: #f1356d;
-  margin-bottom: 10px;
-}
-.artefact-details div {
-  margin: 20px 0;
-}
-.artefact-details button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-}
