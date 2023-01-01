@@ -2,7 +2,7 @@ import styles from "./ArtefactPreview.module.css";
 
 const ArcheologistsList = ({ archeologists, title }) => {
   return (
-    <div className="artefact-list">
+    <div className="archeologist-list">
       <h2>{title}</h2>
       {archeologists.map((archeologist) => (
         <div className={styles.artefactPreview} key={archeologist.id}>
