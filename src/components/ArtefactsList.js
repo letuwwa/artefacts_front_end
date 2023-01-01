@@ -6,7 +6,7 @@ const ArtefactsList = ({ artefacts, title }) => {
     <div className="artefact-list">
       <h2>{title}</h2>
       {artefacts.map((artefact) => (
-        <div className={styles.artefactPreview} key={artefact.id}>
+        <div className={styles.listPreview} key={artefact.id}>
           <Link to={`/artefacts/${artefact.id}`}>
             <h2>{artefact.name}</h2>
           </Link>

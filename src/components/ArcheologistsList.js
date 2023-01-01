@@ -5,7 +5,7 @@ const ArcheologistsList = ({ archeologists, title }) => {
     <div className="archeologist-list">
       <h2>{title}</h2>
       {archeologists.map((archeologist) => (
-        <div className={styles.artefactPreview} key={archeologist.id}>
+        <div className={styles.listPreview} key={archeologist.id}>
           <h2>{archeologist.first_name + " " + archeologist.surname}</h2>
         </div>
       ))}
