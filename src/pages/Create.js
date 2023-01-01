@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
 
 const Create = () => {
@@ -30,7 +31,7 @@ const Create = () => {
   };
 
   return (
-    <div className="create">
+    <div className={styles.create}>
       <h2>Add New Artefact</h2>
       <form onSubmit={handleSubmit}>
         <label>Artefact name:</label>
