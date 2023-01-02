@@ -1,4 +1,5 @@
 import useFetch from "../utils/useFetch";
+import LoadingRender from "../components/LoadingRender";
 import ArtefactsList from "../components/ArtefactsList";
 
 const Home = () => {
@@ -10,8 +11,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      {error && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
+      <LoadingRender isLoading={isLoading} error={error} />
       {artefacts && (
         <ArtefactsList
           artefacts={artefacts.artefacts}
