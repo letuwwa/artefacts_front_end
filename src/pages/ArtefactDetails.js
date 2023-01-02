@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import useFetch from "../utils/useFetch";
 import styles from "./ArtefactDetails.module.css";
+import LoadingRender from "../components/LoadingRender";
 import { useHistory, useParams } from "react-router-dom";
 
 const ArtefactDetails = () => {
@@ -25,8 +26,7 @@ const ArtefactDetails = () => {
 
   return (
     <div className={styles.artefactDetails}>
-      {isLoading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
+      <LoadingRender isLoading={isLoading} error={error} />
       {artefact && (
         <article>
           <h2>{artefact.name}</h2>

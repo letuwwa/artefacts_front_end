@@ -1,4 +1,5 @@
 import useFetch from "../utils/useFetch";
+import LoadingRender from "../components/LoadingRender";
 import ArcheologistsList from "../components/ArcheologistsList";
 
 const ArcheologistsPage = () => {
@@ -9,8 +10,7 @@ const ArcheologistsPage = () => {
   } = useFetch("http://localhost:8000/artefacts_api/archeologists/");
   return (
     <div className="archeologist-preview">
-      {error && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
+      <LoadingRender isLoading={isLoading} error={error} />
       {archeologists && (
         <ArcheologistsList
           archeologists={archeologists.archeologists}
