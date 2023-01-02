@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
+import CreateButton from "../components/CreateButton";
 
 const Registration = () => {
   const notify = () => toast("User has been saved!");
@@ -75,8 +76,11 @@ const Registration = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {!isLoading && <button>Sign Up!</button>}
-        {isLoading && <button disabled>Loading...</button>}
+        <CreateButton
+          isLoading={isLoading}
+          buttonText="Sign up!"
+          loadingText="Saving user..."
+        />
       </form>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
+import CreateButton from "../components/CreateButton";
 
 const Create = () => {
   const notify = () => toast("Artefact has been saved!");
@@ -65,8 +66,11 @@ const Create = () => {
           value={createdIn}
           onChange={(e) => setCreatedIn(e.target.value)}
         />
-        {!isLoading && <button>Save Artefact</button>}
-        {isLoading && <button disabled>Saving Artefact</button>}
+        <CreateButton
+          isLoading={isLoading}
+          buttonText="Save artefact"
+          loadingText="Saving artefact..."
+        />
       </form>
     </div>
   );
