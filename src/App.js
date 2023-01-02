@@ -4,6 +4,7 @@ import Create from "./pages/Create";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
 import "react-toastify/dist/ReactToastify.css";
+import Registration from "./pages/Registration";
 import { ToastContainer } from "react-toastify";
 import PrivateRouter from "./utils/PrivateRouter";
 import ArtefactDetails from "./pages/ArtefactDetails";
@@ -33,6 +34,9 @@ function App() {
               </Route>
               <Route path="/login">
                 <LoginPage />
+              </Route>
+              <Route path="/registration">
+                <Registration />
               </Route>
               <Route path="*">
                 <NotFound />

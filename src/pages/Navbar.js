@@ -23,6 +23,7 @@ const Navbar = () => {
       ) : (
         <Link to="/login">Login</Link>
       )}
+      {!user && <Link to="/registration">Sign Up</Link>}
     </nav>
   );
 };
