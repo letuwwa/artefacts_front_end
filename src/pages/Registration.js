@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
 
 const Registration = () => {
@@ -36,7 +37,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="user-create">
+    <div className={styles.create}>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <label>Username:</label>
@@ -47,11 +48,12 @@ const Registration = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         <label>Your email:</label>
-        <textarea
+        <input
+          type="text"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        ></textarea>
+        />
         <label>First name:</label>
         <input
           type="text"
