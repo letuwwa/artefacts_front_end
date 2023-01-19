@@ -31,7 +31,6 @@ const Registration = () => {
       body: JSON.stringify(artefact),
     }).then(() => {
       notify();
-      console.log("data added");
       setLoading(false);
       history.push("/login");
     });

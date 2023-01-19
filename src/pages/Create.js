@@ -29,7 +29,6 @@ const Create = () => {
       body: JSON.stringify(artefact),
     }).then(() => {
       notify();
-      console.log("data added");
       setLoading(false);
       history.push("/");
     });
