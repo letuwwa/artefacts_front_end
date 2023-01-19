@@ -4,6 +4,8 @@ import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
 import CreateButton from "../components/CreateButton";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 const Create = () => {
   const notify = () => toast("Artefact has been saved!");
 
@@ -23,13 +25,12 @@ const Create = () => {
       discovery_year: discoveredIn,
     };
     setLoading(true);
-    fetch("http://localhost:8000/artefacts_api/artefacts/", {
+    fetch(SERVER_URL + "/artefacts_api/artefacts/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(artefact),
     }).then(() => {
       notify();
-      console.log("data added");
       setLoading(false);
       history.push("/");
     });

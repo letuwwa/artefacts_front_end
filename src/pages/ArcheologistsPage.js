@@ -2,12 +2,14 @@ import useFetch from "../utils/useFetch";
 import LoadingRender from "../components/LoadingRender";
 import ArcheologistsList from "../components/ArcheologistsList";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 const ArcheologistsPage = () => {
   const {
     fetchedData: archeologists,
     isLoading,
     error,
-  } = useFetch("http://localhost:8000/artefacts_api/archeologists/");
+  } = useFetch(SERVER_URL + "/artefacts_api/archeologists/");
   return (
     <div className="archeologist-preview">
       <LoadingRender isLoading={isLoading} error={error} />

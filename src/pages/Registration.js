@@ -4,6 +4,8 @@ import styles from "./Create.module.css";
 import { useHistory } from "react-router-dom";
 import CreateButton from "../components/CreateButton";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 const Registration = () => {
   const notify = () => toast("User has been saved!");
 
@@ -25,13 +27,12 @@ const Registration = () => {
       password: password,
     };
     setLoading(true);
-    fetch("http://localhost:8000/auth_api/register/", {
+    fetch(SERVER_URL + "/auth_api/register/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(artefact),
     }).then(() => {
       notify();
-      console.log("data added");
       setLoading(false);
       history.push("/login");
     });
