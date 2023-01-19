@@ -4,19 +4,21 @@ import styles from "./ArtefactDetails.module.css";
 import LoadingRender from "../components/LoadingRender";
 import { useHistory, useParams } from "react-router-dom";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 const ArtefactDetails = () => {
   const { uuid } = useParams();
   const {
     fetchedData: artefact,
     isLoading,
     error,
-  } = useFetch("http://localhost:8000/artefacts_api/artefacts/" + uuid);
+  } = useFetch(SERVER_URL + "/artefacts_api/artefacts/" + uuid);
   const history = useHistory();
 
   const notify = () => toast("Artefact has been deleted!");
 
   const handleClick = () => {
-    fetch("http://localhost:8000/artefacts_api/artefacts/" + uuid, {
+    fetch(SERVER_URL + "/artefacts_api/artefacts/" + uuid, {
       method: "DELETE",
     }).then(() => {
       notify();
